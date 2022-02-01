@@ -5,9 +5,13 @@ import "./Register.css";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+
+    // CREATE USER WITH EMAIL AND PASSWORD
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+
+    // CREATE USER WITH EMAIL AND PASSWORD
     const handleSubmit = async(e) => {
         e.preventDefault();
         // console.log(email, password, "email,password");
@@ -16,7 +20,7 @@ function Register() {
             navigate('/home')
                 // console.log(result, "result");
         } catch (error) {
-            alert(error);
+            alert("invalid email or password");
         }
     };
 
@@ -52,7 +56,7 @@ function Register() {
         div className = "register-login" >
         <
         p >
-        Sif Already have an account ? < Link to = "/" > Login < /Link> now. <
+        if Already have an account ? < Link to = "/" > Login < /Link> now. <
         /p> <
         /div> <
         /div> <

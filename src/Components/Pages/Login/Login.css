@@ -35,6 +35,7 @@
 }
 
 .login-btn button {
+    width: 20vw;
     padding: 10px;
     font-size: 15px;
     margin-bottom: 10px;
@@ -42,6 +43,17 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.274);
     /* text-decoration: none; */
+    cursor: pointer;
+}
+
+.login-googleSignIn button {
+    width: 20vw;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.274);
     cursor: pointer;
 }
 

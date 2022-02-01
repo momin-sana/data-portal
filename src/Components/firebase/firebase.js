@@ -2,18 +2,8 @@
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-// import {
-//     createUserWithEmailAndPassword,
-// } from "firebase/auth";
-// import{
-//     collection, addDoc
-// }from "firebase/firestore"
+import { GoogleAuthProvider } from "firebase/compat/auth";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyDE5X9rBeh0j6PwLGA8kZVMnoKctTARkdg",
     authDomain: "data-portal-14149.firebaseapp.com",
@@ -29,22 +19,8 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 // const analytics = getAnalytics(app);
 const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-// const registerWithEmailPass = async(name, email, password) => {
-//     try {
-//         const res = await createUserWithEmailAndPassword(auth, email, password);
-//         const user = res.user;
-//         await addDoc(collection(db, "users"), {
-//             uid: user.uid,
-//             name,
-//             authProvider: "local",
-//             email,
-//         });
-//     } catch (err) {
-//         console.error(err);
-//         alert(err.message);
-//     }
-// };
 
-export { auth };
+export { auth, provider };
 export default db;
