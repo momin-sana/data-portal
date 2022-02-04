@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 
 function Home({ user }) {
+
     return ( <
         div >
         <
         p >
+
         Congratulation You have successfully logged in
         <
         /p> <

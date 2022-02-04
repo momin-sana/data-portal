@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebase";
+import { updateProfile, sendEmailVerification } from "firebase/auth";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-
     // CREATE USER WITH EMAIL AND PASSWORD
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -16,9 +16,16 @@ function Register() {
         e.preventDefault();
         // console.log(email, password, "email,password");
         try {
-            await auth.createUserWithEmailAndPassword(email, password);
-            navigate('/home')
-                // console.log(result, "result");
+            const result = await auth.createUserWithEmailAndPassword(email, password);
+            navigate("/home");
+
+            await updateProfile(auth.currentUser, {
+                displayName: "User",
+            });
+
+            await sendEmailVerification(auth.currentUser);
+
+            console.log(result, "result");
         } catch (error) {
             alert("invalid email or password");
         }
@@ -51,7 +58,9 @@ function Register() {
         div className = "register-btn" >
         <
         button type = "submit"
-        onClick = { handleSubmit } > Submit < /button> { /* <Link to="/home"> Register </Link>*/ } <
+        onClick = { handleSubmit } >
+        Submit <
+        /button> { /* <Link to="/home"> Register </Link>*/ } <
         /div> <
         div className = "register-login" >
         <
