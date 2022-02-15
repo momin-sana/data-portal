@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth, provider } from "../../firebase/firebase";
+import db, { auth, provider } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { sendEmailVerification, updateProfile } from "firebase/auth";
 
 
 function Login() {
@@ -23,34 +24,70 @@ function Login() {
 
             if (user !== null) {
                 user.providerData.forEach((profile) => {
-                    console.log("Sign-in provider: ", profile.providerId);
+                    console.log(" Sign-in provider from signinlogin: ", profile.providerId);
                     console.log("  Provider-specific UID: ", profile.uid);
                     console.log("  Name: ", profile.displayName);
                     console.log("  Email: ", profile.email);
                     console.log("  Photo URL: ", profile.photoURL);
                 });
             }
-
-            // console.log(result, "result");
         } catch (error) {
             alert("invalid email or password");
         }
     };
 
+
+    const createUserCollection = async(user) => {
+        await db.collection("users")
+            .doc(user.uid)
+            .set({
+                uid: user.uid,
+                name: user.displayName,
+                email: user.email,
+                phone: "",
+                speciality: "",
+                porfolioURL: "",
+            });
+    };
+
     // google authentication
-    const googleSignIn = (e) => {
+    const googleSignIn = async(e) => {
         e.preventDefault();
-        auth
-            .signInWithPopup(provider)
-            .then(() => navigate("/home"))
-            .catch((error) => alert("invalid email or password"));
+        try {
+            const result = await auth.signInWithPopup(provider);
+            navigate("/home");
+
+            await updateProfile(auth.currentUser, {
+                displayName: "User",
+            });
+
+            createUserCollection(result.user);
+
+            await sendEmailVerification(auth.currentUser);
+
+            if (user !== null) {
+                user.providerData.forEach((profile) => {
+                    console.log(" Sign-in provider from login: ", profile.providerId);
+                    console.log("  Provider-specific UID from login: ", profile.uid);
+                    console.log("  Name from login: ", profile.displayName);
+                    console.log("  Email from login: ", profile.email);
+                    console.log("  Photo URL from login: ", profile.photoURL);
+                });
+            }
+
+            console.log(result, "result");
+        } catch (error) {
+            alert("invalid email or password");
+        }
     };
 
     return ( <
         div className = "login" >
         <
         h3 > Please Login < /h3> <
-        div className = "login-container" > { /* SIGNIN WITH EMAIL AND PASSWORD */ } <
+        div className = "login-container" >
+
+        { /* SIGNIN WITH EMAIL AND PASSWORD */ } <
         form onSubmit = {
             (e) => handleSubmit(e) } >
         <
@@ -82,9 +119,9 @@ function Login() {
         <
         button onClick = { googleSignIn } > Sign In with Google < /button> <
         /div> { /**/ } <
-        div className = "login-reset" >
+        div className = "login-forgottenpass" >
         <
-        Link to = "/reset" > Forgetten Password ? < /Link> <
+        Link to = "/forgottenpass" > Forgetten Password ? < /Link> <
         /div> <
         div className = "login-register" >
         <

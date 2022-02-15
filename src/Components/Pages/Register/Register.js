@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { auth } from "../../firebase/firebase";
+import db, { auth } from "../../firebase/firebase";
 import { updateProfile, sendEmailVerification } from "firebase/auth";
 import { Link } from "react-router-dom";
 import "./Register.css";
@@ -10,6 +10,20 @@ function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const user = auth.currentUser;
+
+    const createUserCollection = async(user) => {
+        await db.collection("users")
+            .doc(user.uid)
+            .set({
+                uid: user.uid,
+                name: user.displayName,
+                email: user.email,
+                phone: "",
+                speciality: "",
+                porfolioURL: "",
+            });
+    };
 
     // CREATE USER WITH EMAIL AND PASSWORD
     const handleSubmit = async(e) => {
@@ -23,11 +37,13 @@ function Register() {
                 displayName: "User",
             });
 
-            await sendEmailVerification(auth.currentUser);
+            createUserCollection(result.user);
+
+            // await sendEmailVerification(auth.currentUser);
 
             console.log(result, "result");
         } catch (error) {
-            alert("invalid email or password");
+            // alert("invalid email or password");
         }
     };
 

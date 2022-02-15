@@ -19,7 +19,7 @@ function Forgottenpass() {
     // PASSWORD REST
     const sendPasswordResetEmail = async(email) => {
         try {
-            await sendPasswordResetEmail(auth, email);
+            await sendPasswordResetEmail(auth.currentUser, email);
             console.log(email, "email");
             console.log(auth, "auth");
             alert("Password reset link sent!");
