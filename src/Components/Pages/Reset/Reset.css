@@ -4,31 +4,84 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    background-image: radial-gradient(circle, rgba(0,46,72,1) 0%, rgba(1,45,19,1) 95%);
+
 }
 
 .reset-container {
+    width: 300px; /* Adjust width as needed */
+    background-color: #ffffff7c;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(227, 227, 227, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.reset-container:hover {
+    transform: scale(1.02); /* Scale up slightly on hover */
+}
+
+.reset-container form {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    background-color: #dcdcdc;
-    padding: 30px;
 }
 
 .reset-textBox {
     padding: 10px;
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 10px;
+    border: 1px solid rgba(1,45,19,1);
+    border-radius: 5px;
+    outline: none;
+}
+
+.reset-textbox:focus {
+    border-color: rgba(1,45,19,1); /* Change border color on focus */
 }
 
 .reset-btn {
-    padding: 10px;
-    font-size: 18px;
+    width: 100%; /* Full width button */
+    padding: 12px;
+    font-size: 16px;
     margin-bottom: 10px;
     border: none;
-    color: white;
-    background-color: black;
+    color: rgb(245, 245, 245);
+    background-color: rgba(1,45,19,1);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-btn button:hover, .login-googleSignIn button:hover {
+    background-color: rgb(125, 193, 153);
+    color: black;
 }
 
 .reset div {
-    margin-top: 7px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.reset-title {
+    color: #fff; 
+    font-size: 24px; 
+    margin-bottom: 20px; 
+}
+
+/* Links */
+.reset a {
+    color: #ff0000 ; /* Default link color */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.reset a:hover {
+    color: #0000ff; 
+}
+
+.reset a:active {
+    color: purple; 
 }

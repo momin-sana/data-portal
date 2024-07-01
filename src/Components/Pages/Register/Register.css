@@ -4,23 +4,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    align-content: center;
     flex-direction: column;
+    color: #fff;
+    background-image: radial-gradient(circle, rgba(0,46,72,1) 0%, rgba(1,45,19,1) 95%);
 }
 
 .register-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: #dcdcdc;
+    width: 300px; /* Adjust width as needed */
+    background-color: #ffffff7c;
     padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(227, 227, 227, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Add animation for transform */
+}
+
+.register-container:hover{
+    transform: scale(1.02); /* Scale up slightly on hover */
 }
 
 .register-container>form {
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: #dcdcdc;
     padding: 1px;
     flex-wrap: nowrap;
     align-content: center;
@@ -32,20 +38,54 @@
     padding: 10px;
     font-size: 15px;
     margin-bottom: 10px;
+    border: 1px solid rgba(1,45,19,1);
+    border-radius: 5px;
+    outline: none;
+}
+
+.register-textbox:focus{
+    border-color: rgba(1,45,19,1); /* Change border color on focus */
 }
 
 .register-btn button {
-    padding: 10px;
-    width: 20vw;
-    font-size: 15px;
+    width: 100%; /* Full width button */
+    padding: 12px;
+    font-size: 16px;
     margin-bottom: 10px;
     border: none;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.274);
-    /* text-decoration: none; */
+    color: rgb(245, 245, 245);
+    background-color: rgba(1,45,19,1);
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn button:hover{
+    background-color: rgb(125, 193, 153);
+    color: black;
 }
 
 .register div {
-    margin-top: 7px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.register-title{
+    color: #fff; 
+    font-size: 24px; 
+    margin-bottom: 20px; 
+}
+
+.register a{
+    color: #ff0000 ; /* Default link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.register a:hover {
+    color: #0000ff; 
+}
+
+.register a:active {
+    color: purple; 
 }

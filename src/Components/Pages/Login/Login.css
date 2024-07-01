@@ -1,62 +1,89 @@
+/* Main container styles */
 .login {
     height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    align-content: center;
     flex-direction: column;
+    color: #fff;
+    background-image: radial-gradient(circle, rgba(0,46,72,1) 0%, rgba(1,45,19,1) 95%);
 }
 
+/* Login form container */
 .login-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: #dcdcdc;
+    width: 300px; /* Adjust width as needed */
+    background-color: #ffffff7c;
     padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(227, 227, 227, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Add animation for transform */
 }
 
-.login-container>form {
+.login-container:hover {
+    transform: scale(1.02); /* Scale up slightly on hover */
+}
+
+/* Form styles */
+.login-container form {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    background-color: #dcdcdc;
-    padding: 1px;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: stretch;
 }
 
 .login-textbox {
     padding: 10px;
     font-size: 15px;
     margin-bottom: 10px;
+    border: 1px solid rgba(1,45,19,1);
+    border-radius: 5px;
+    outline: none;
 }
 
-.login-btn button {
-    width: 20vw;
-    padding: 10px;
-    font-size: 15px;
-    margin-bottom: 10px;
-    border: none;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.274);
-    /* text-decoration: none; */
-    cursor: pointer;
+.login-textbox:focus {
+    border-color: rgba(1,45,19,1); /* Change border color on focus */
 }
 
-.login-googleSignIn button {
-    width: 20vw;
-    padding: 10px;
-    font-size: 15px;
+.login-btn button, .login-googleSignIn button {
+    width: 100%; /* Full width button */
+    padding: 12px;
+    font-size: 16px;
     margin-bottom: 10px;
     border: none;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.274);
+    color: rgb(245, 245, 245);
+    background-color: rgba(1,45,19,1);
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.login-btn button:hover, .login-googleSignIn button:hover {
+    background-color: rgb(125, 193, 153);
+    color: black;
 }
 
 .login div {
-    margin-top: 7px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.login-title {
+    color: #fff; /* Text color */
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Spacing */
+}
+
+/* Links */
+.login a {
+    color: #ff0000 ; /* Default link color */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.login a:hover {
+    color: #0000ff; 
+}
+
+.login a:active {
+    color: purple; 
 }

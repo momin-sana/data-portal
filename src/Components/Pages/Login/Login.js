@@ -81,58 +81,49 @@ function Login() {
         }
     };
 
-    return ( <
-        div className = "login" >
-        <
-        h3 > Please Login < /h3> <
-        div className = "login-container" >
+    return ( 
+        <div className = "login" >
+            <h3 > Please Login </h3> 
+            <div className = "login-container" >
 
-        { /* SIGNIN WITH EMAIL AND PASSWORD */ } <
-        form onSubmit = {
-            (e) => handleSubmit(e) } >
-        <
-        input type = "email"
-        className = "login-textbox"
-        // value={email}
-        placeholder = "E-mail Address"
-        onChange = {
-            (e) => setEmail(e.target.value) }
-        /> <
-        input type = "password"
-        className = "login-textbox"
-        // value={password}
-        placeholder = "Password"
-        onChange = {
-            (e) => setPassword(e.target.value) }
-        /> <
-        /form>
+                { /* SIGNIN WITH EMAIL AND PASSWORD */ } 
+                <form onSubmit = {
+                    (e) => handleSubmit(e) } >
+                    <input type = "email"
+                        className = "login-textbox"
+                        // value={email}
+                        placeholder = "E-mail Address"
+                        onChange = {
+                        (e) => setEmail(e.target.value) }
+                    /> 
+                    <input type = "password"
+                        className = "login-textbox"
+                        // value={password}
+                        placeholder = "Password"
+                        onChange = {
+                        (e) => setPassword(e.target.value) }
+                    /> 
+                </form>
 
-        <
-        div className = "login-btn" >
-        <
-        button type = "submit"
-        onClick = { handleSubmit } >
-        Login <
-        /button> <
-        /div> <
-        div className = "login-googleSignIn" >
-        <
-        button onClick = { googleSignIn } > Sign In with Google < /button> <
-        /div> { /**/ } <
-        div className = "login-forgottenpass" >
-        <
-        Link to = "/forgottenpass" > Forgetten Password ? < /Link> <
-        /div> <
-        div className = "login-register" >
-        <
-        p >
-        SignUp
-        if Don 't have an account <
-        Link to = "/register" > Register < /Link> now. <
-        /p> <
-        /div> <
-        /div> <
-        /div>
+                <div className = "login-btn" >
+                    <button type = "submit"
+                    onClick = { handleSubmit } >
+                    Login </button> 
+                </div> 
+                
+                <div className = "login-googleSignIn" >
+                    <button onClick = { googleSignIn } > Sign In with Google </button> 
+                </div>  
+
+                <div className = "login-forgottenpass" >
+                    <Link to = "/forgottenpass" > Forgetten Password ? </Link> 
+                </div> 
+
+                <div className = "login-register" >
+                    <p> if Don't have an account <Link to = "/register" > Register </Link> now. </p> 
+                </div>
+            </div>
+        </div> 
     );
 }
 

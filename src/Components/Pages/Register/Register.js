@@ -47,45 +47,33 @@ function Register() {
         }
     };
 
-    return ( <
-        div className = "register" >
-        <
-        h3 > Please Signup < /h3> <
-        div className = "register-container" >
-        <
-        form onSubmit = {
+    return ( 
+        <div className = "register" >
+        <h3 > Please Signup </h3> 
+        <div className = "register-container" >
+        <form onSubmit = {
             (e) => handleSubmit(e) } >
-        <
-        input type = "email"
+        <input type = "email"
         className = "register-textbox"
         // value={email}
         placeholder = "E-mail Address"
         onChange = {
             (e) => setEmail(e.target.value) }
-        /> <
-        input type = "password"
+        /> <input type = "password"
         className = "register-textbox"
         // value={password}
         placeholder = "Password"
         onChange = {
             (e) => setPassword(e.target.value) }
-        /> <
-        /form> <
-        div className = "register-btn" >
-        <
-        button type = "submit"
+        /> </form> <div className = "register-btn" >
+        <button type = "submit"
         onClick = { handleSubmit } >
-        Submit <
-        /button> { /* <Link to="/home"> Register </Link>*/ } <
-        /div> <
-        div className = "register-login" >
-        <
-        p >
-        if Already have an account ? < Link to = "/" > Login < /Link> now. <
-        /p> <
-        /div> <
-        /div> <
-        /div>
+        Submit </button> { /* <Link to="/home"> Register </Link>*/ } 
+        </div> <div className = "register-login" >
+        <p >
+        if Already have an account ? < Link to = "/" > Login </Link> now. </p> 
+        </div> 
+        </div> </div>
     );
 }
 
