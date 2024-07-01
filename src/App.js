@@ -20,31 +20,22 @@ function App() {
             };
         });
     }, []);
-    return ( <
-        div className = "DataPortal-App" >
-        <
-        Router >
-        <
-        Routes >
-        <
-        Route path = "/"
-        element = { < Login / > }
-        /> <
-        Route path = "/register"
-        element = { < Register / > }
-        /> <
-        Route path = "/home"
-        element = { < Home user = { user }
-            />} / >
-            <
-            Route path = "/forgottenpass"
-            element = { < Forgottenpass / > }
-            />
+    return ( 
+        <div className = "DataPortal-App" >
+            <Router >
+            <Routes >
+                <Route path = "/"
+                element = { <Login/> } /> 
+                <Route path = "/register"
+                element = { <Register/> }/> 
+                <Route path = "/home"
+                element = { <Home user = { user }/>} />
+                <Route path = "/forgottenpass"
+                element = { <Forgottenpass/> }/>
 
-            <
-            /Routes> <
-            /Router> <
-            /div>
+            </Routes> 
+            </Router> 
+        </div>
         );
     }
 
