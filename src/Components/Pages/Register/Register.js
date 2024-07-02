@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import db, { auth } from "../../firebase/firebase";
-import { updateProfile, sendEmailVerification } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,6 @@ function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const user = auth.currentUser;
 
     const createUserCollection = async(user) => {
         await db.collection("users")

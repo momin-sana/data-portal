@@ -4,13 +4,14 @@
     "private": true,
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "CI=false react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d public"
+        "deploy": "gh-pages -d build"
     },
-    "homepage": "https://momin-sana.github.io/data-portal/public",
+   "homepage": "https://momin-sana.github.io/data-portal",
+
     "dependencies": {
         "@mui/icons-material": "^5.2.5",
         "@mui/material": "^5.2.8",
