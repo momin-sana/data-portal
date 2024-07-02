@@ -18,22 +18,18 @@ const useDetails = () => {
 
         };
         displayDetails();
-    }, []);
-    return ( <
-        div >
-        <
-        h3 > Your account details: < /h3>  <
-        ul style = {
+    }, [user.providerData]);
+    return ( 
+        <div >
+        <h3 > Your account details: </h3>  <ul style = {
             { listStyleType: "none" } } >
-        <
-        li > Your Name: { name } < /li> <
-        li > Your Email Address: { email } < /li> <
-        li > Your Photo: < img alt = "Profile Pic"
+        <li > Your Name: { name } </li> 
+        <li > Your Email Address: { email } </li> 
+        <li > Your Photo: <img alt = "Profile Pic"
         src = { user.photoURL }
         /></li >
-        <
-        /ul> <
-        /div>
+        </ul> 
+        </div>
     );
 };
 

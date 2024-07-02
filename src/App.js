@@ -6,7 +6,6 @@ import Register from "./Components/Pages/Register/Register";
 import Home from "./Components/Pages/Home/Home";
 import Forgottenpass from "./Components/Pages/Forgottenpass/Forgottenpass"
 import { auth } from "./Components/firebase/firebase";
-import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
     const [user, setUser] = useState(null);
