@@ -11,7 +11,7 @@ function Forgottenpass() {
     useEffect(() => {
         if (loading) return;
         // if (user) navigate("/home");
-    }, [user, loading]);
+    }, [user, loading, error]);
 
     // PASSWORD REST
     const sendPasswordResetEmail = async(email) => {
@@ -34,8 +34,7 @@ function Forgottenpass() {
             value = { email }
             onChange = {
                 (e) => setEmail(e.target.value) }
-            placeholder = "E-mail Address" /
-            >
+            placeholder = "E-mail Address" />
             <button className = "forgottenpass-btn"
             onClick = {
                 () => sendPasswordResetEmail(email) } >
